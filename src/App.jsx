@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import trades from "./data/trades.json";
 
 export default function App() {
-  const [selectedYear, setSelectedYear] = useState("ALL");
   const [selectedCapital, setSelectedCapital] = useState(50000);
 
-  const filteredTrades =
-    selectedYear === "ALL"
-      ? trades
-      : trades.filter(
-          (trade) =>
-            new Date(trade.date).getFullYear().toString() === selectedYear
-        );
+  const filteredTrades = trades;
 
   const totalPnL = filteredTrades.reduce((a, b) => a + b.pnl, 0);
 
@@ -83,14 +76,22 @@ export default function App() {
           </p>
         </div>
 
-        <img
-          src="https://i.imgur.com/8Km9tLL.png"
-          alt="logo"
+        <div
           style={{
             width: "180px",
-            borderRadius: "24px",
+            height: "180px",
+            background: "#b6f542",
+            borderRadius: "28px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "#1e293b",
+            fontSize: "82px",
+            fontWeight: "900",
           }}
-        />
+        >
+          T
+        </div>
       </div>
 
       <div
@@ -102,33 +103,8 @@ export default function App() {
         }}
       >
         <div>
-          <label style={{ color: "#94a3b8" }}>Select Year</label>
-          <br />
-
-          <select
-            value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
-            style={{
-              marginTop: "10px",
-              padding: "14px",
-              background: "#0f172a",
-              color: "white",
-              border: "1px solid #1e293b",
-              borderRadius: "12px",
-              fontSize: "16px",
-            }}
-          >
-            <option value="ALL">ALL</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-          </select>
-        </div>
-
-        <div>
           <label style={{ color: "#94a3b8" }}>Starting Capital</label>
+
           <br />
 
           <select
@@ -263,7 +239,9 @@ export default function App() {
                     borderBottom: "1px solid #1e293b",
                   }}
                 >
-                  <td style={{ padding: "24px" }}>#{trade.id}</td>
+                  <td style={{ padding: "24px" }}>
+                    #{trade.tradeId}
+                  </td>
 
                   <td style={{ padding: "24px" }}>
                     <span
@@ -297,14 +275,16 @@ export default function App() {
                     ₹{trade.pnl.toLocaleString()}
                   </td>
 
-                  <td style={{ padding: "24px" }}>{trade.roi}%</td>
-
                   <td style={{ padding: "24px" }}>
-                    {trade.holding}
+                    {trade.roi}%
                   </td>
 
                   <td style={{ padding: "24px" }}>
-                    ₹{trade.capital.toLocaleString()}
+                    {trade.holdingHours}h
+                  </td>
+
+                  <td style={{ padding: "24px" }}>
+                    ₹{trade.capitalAfter.toLocaleString()}
                   </td>
                 </tr>
               ))}
