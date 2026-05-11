@@ -1,0 +1,289 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#060816;
+  color:white;
+  font-family:Inter,Arial,sans-serif;
+}
+
+.app{
+  display:flex;
+  min-height:100vh;
+  background:
+  radial-gradient(circle at top right,#1b233f 0%,#060816 40%);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  width:260px;
+  background:rgba(13,18,35,0.95);
+  border-right:1px solid rgba(255,255,255,0.05);
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  backdrop-filter:blur(20px);
+}
+
+.logoBox{
+  width:70px;
+  height:70px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#d4ff3f 0%,#8dff00 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-size:42px;
+  font-weight:900;
+  box-shadow:0 0 30px rgba(163,255,0,0.25);
+  margin-bottom:25px;
+}
+
+.brandTitle{
+  font-size:30px;
+  line-height:34px;
+  font-weight:900;
+  margin-bottom:40px;
+}
+
+.brandTitle span{
+  color:#c8ff3d;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.menuItem{
+  padding:15px 18px;
+  border-radius:16px;
+  color:#a7b0c5;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.menuItem:hover{
+  background:#141c34;
+}
+
+.menuItem.active{
+  background:rgba(200,255,61,0.08);
+  border:1px solid rgba(200,255,61,0.2);
+  color:#d4ff3f;
+}
+
+/* MAIN */
+
+.main{
+  flex:1;
+  padding:40px;
+}
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.liveTag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(200,255,61,0.08);
+  border:1px solid rgba(200,255,61,0.18);
+  color:#d4ff3f;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+.heroTitle{
+  font-size:78px;
+  line-height:78px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.heroTitle span{
+  color:#d4ff3f;
+}
+
+.heroText{
+  max-width:700px;
+  color:#98a4bd;
+  line-height:34px;
+  font-size:20px;
+}
+
+.heroLogo{
+  width:300px;
+  height:300px;
+  border-radius:40px;
+  background:
+  linear-gradient(135deg,#d4ff3f 0%,#8dff00 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-size:150px;
+  font-weight:900;
+  box-shadow:0 0 80px rgba(163,255,0,0.15);
+}
+
+/* KPI */
+
+.kpiGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-bottom:35px;
+}
+
+.kpiCard{
+  background:rgba(17,24,45,0.92);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:28px;
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+}
+
+.kpiTop{
+  width:100%;
+  height:4px;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.kpiTitle{
+  color:#8e98b3;
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.kpiValue{
+  font-size:54px;
+  font-weight:900;
+}
+
+/* CHART */
+
+.chartCard{
+  background:#10172b;
+  border-radius:30px;
+  padding:35px;
+  border:1px solid rgba(255,255,255,0.05);
+  margin-bottom:35px;
+}
+
+.chartHeader{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:30px;
+}
+
+.chartTitle{
+  font-size:34px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.chartSub{
+  color:#8d97af;
+}
+
+.verifyTag{
+  background:rgba(200,255,61,0.08);
+  color:#d4ff3f;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:700;
+  height:fit-content;
+}
+
+.chartArea{
+  height:320px;
+  border-radius:24px;
+  background:linear-gradient(180deg,#0b1020 0%,#091222 100%);
+  padding:30px;
+  display:flex;
+  align-items:flex-end;
+  gap:16px;
+}
+
+.chartBar{
+  flex:1;
+  border-radius:12px 12px 0 0;
+  background:
+  linear-gradient(180deg,#d4ff3f 0%,#8dff00 100%);
+  min-height:20px;
+  box-shadow:0 0 25px rgba(163,255,0,0.15);
+}
+
+/* TABLE */
+
+.tableCard{
+  background:#10172b;
+  border-radius:30px;
+  padding:35px;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.tableWrap{
+  overflow:auto;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.table th{
+  color:#8c97b1;
+  text-align:left;
+  padding:18px;
+}
+
+.table td{
+  padding:24px 18px;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.direction{
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+.long{
+  background:rgba(111,255,0,0.12);
+  color:#b9ff44;
+}
+
+.short{
+  background:rgba(255,0,77,0.12);
+  color:#ff5470;
+}
+
+.green{
+  color:#b9ff44;
+  font-weight:800;
+}
+
+.red{
+  color:#ff5470;
+  font-weight:800;
+}
