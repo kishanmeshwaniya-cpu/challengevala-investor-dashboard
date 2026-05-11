@@ -1,26 +1,34 @@
 [
   {
-    "id": 101,
-    "date": "2021-01-04",
+    "tradeId": 101,
     "direction": "LONG",
-    "entry": 14120,
-    "exit": 14380,
-    "points": 260,
-    "pnl": 16900,
-    "roi": 33.8,
-    "capital": 50000,
-    "holding": "5h"
+    "pnl": 84347,
+    "roi": 107.89,
+    "holdingHours": 195,
+    "capitalAfter": 162524
   },
   {
-    "id": 102,
-    "date": "2021-01-12",
+    "tradeId": 102,
     "direction": "SHORT",
-    "entry": 14550,
-    "exit": 14310,
-    "points": 240,
-    "pnl": 15600,
-    "roi": 31.2,
-    "capital": 66900,
-    "holding": "7h"
+    "pnl": -10874,
+    "roi": -11.74,
+    "holdingHours": 3.75,
+    "capitalAfter": 81768
+  },
+  {
+    "tradeId": 103,
+    "direction": "LONG",
+    "pnl": 45168,
+    "roi": 95.14,
+    "holdingHours": 186,
+    "capitalAfter": 92643
+  },
+  {
+    "tradeId": 104,
+    "direction": "SHORT",
+    "pnl": 101383,
+    "roi": 128.43,
+    "holdingHours": 242,
+    "capitalAfter": 203309
   }
 ]
