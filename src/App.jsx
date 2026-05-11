@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import trades from "./data/trades.json";
-import trades from "./data/trades.json";
 
 export default function App() {
 
