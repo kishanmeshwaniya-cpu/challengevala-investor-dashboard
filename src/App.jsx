@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import trades from "./data/trades.json";
 
 export default function App() {
