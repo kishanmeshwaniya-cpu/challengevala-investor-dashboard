@@ -2,27 +2,41 @@ import React, { useState } from "react";
 import trades from "./data/trades.json";
 
 export default function App() {
+  const [selectedYear, setSelectedYear] = useState("ALL");
+  const [selectedCapital, setSelectedCapital] = useState(50000);
 
-  const totalPnL = trades.reduce((a, b) => a + b.pnl, 0);
+  const filteredTrades =
+    selectedYear === "ALL"
+      ? trades
+      : trades.filter(
+          (trade) =>
+            new Date(trade.date).getFullYear().toString() === selectedYear
+        );
 
-  const winTrades = trades.filter(t => t.pnl > 0).length;
+  const totalPnL = filteredTrades.reduce((a, b) => a + b.pnl, 0);
 
-  const lossTrades = trades.filter(t => t.pnl < 0).length;
+  const finalCapital = selectedCapital + totalPnL;
 
-  const winRate = ((winTrades / trades.length) * 100).toFixed(2);
+  const winTrades = filteredTrades.filter((t) => t.pnl > 0).length;
 
-  const profitFactor = (
-    trades
-      .filter(t => t.pnl > 0)
-      .reduce((a, b) => a + b.pnl, 0) /
-    Math.abs(
-      trades
-        .filter(t => t.pnl < 0)
-        .reduce((a, b) => a + b.pnl, 0)
-    )
-  ).toFixed(2);
+  const lossTrades = filteredTrades.filter((t) => t.pnl < 0).length;
 
-  const finalCapital = 50000 + totalPnL;
+  const winRate =
+    filteredTrades.length > 0
+      ? ((winTrades / filteredTrades.length) * 100).toFixed(2)
+      : 0;
+
+  const profitFactor =
+    lossTrades > 0
+      ? Math.abs(
+          filteredTrades
+            .filter((t) => t.pnl > 0)
+            .reduce((a, b) => a + b.pnl, 0) /
+            filteredTrades
+              .filter((t) => t.pnl < 0)
+              .reduce((a, b) => a + b.pnl, 0)
+        ).toFixed(2)
+      : "0";
 
   return (
     <div
@@ -30,8 +44,8 @@ export default function App() {
         background: "#020817",
         minHeight: "100vh",
         color: "white",
-        fontFamily: "Inter",
         padding: "40px",
+        fontFamily: "Inter",
       }}
     >
       <div
@@ -39,210 +53,265 @@ export default function App() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "40px",
+          marginBottom: "50px",
+          flexWrap: "wrap",
+          gap: "20px",
         }}
       >
         <div>
           <h1
             style={{
               fontSize: "64px",
+              marginBottom: "10px",
               fontWeight: "800",
-              margin: 0,
             }}
           >
             Challengevala{" "}
-            <span style={{ color: "#B7F34D" }}>Trader</span>
+            <span style={{ color: "#b6f542" }}>Trader</span>
           </h1>
 
           <p
             style={{
-              color: "#94A3B8",
-              marginTop: "20px",
-              width: "700px",
-              lineHeight: "32px",
-              fontSize: "22px",
+              color: "#94a3b8",
+              maxWidth: "700px",
+              fontSize: "20px",
+              lineHeight: "34px",
             }}
           >
-            Institutional-grade NIFTY 50 strategy dashboard with
-            real trade verification and investor analytics.
+            Institutional-grade NIFTY 50 strategy dashboard with real investor
+            analytics and verified trade reporting.
           </p>
         </div>
 
         <img
-          src="https://i.imgur.com/FW5QZ8v.png"
-          width="220"
+          src="https://i.imgur.com/8Km9tLL.png"
+          alt="logo"
+          style={{
+            width: "180px",
+            borderRadius: "24px",
+          }}
         />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          marginBottom: "40px",
+          flexWrap: "wrap",
+        }}
+      >
+        <div>
+          <label style={{ color: "#94a3b8" }}>Select Year</label>
+          <br />
+
+          <select
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+            style={{
+              marginTop: "10px",
+              padding: "14px",
+              background: "#0f172a",
+              color: "white",
+              border: "1px solid #1e293b",
+              borderRadius: "12px",
+              fontSize: "16px",
+            }}
+          >
+            <option value="ALL">ALL</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+
+        <div>
+          <label style={{ color: "#94a3b8" }}>Starting Capital</label>
+          <br />
+
+          <select
+            value={selectedCapital}
+            onChange={(e) => setSelectedCapital(Number(e.target.value))}
+            style={{
+              marginTop: "10px",
+              padding: "14px",
+              background: "#0f172a",
+              color: "white",
+              border: "1px solid #1e293b",
+              borderRadius: "12px",
+              fontSize: "16px",
+            }}
+          >
+            <option value={50000}>₹50,000</option>
+            <option value={100000}>₹1,00,000</option>
+            <option value={200000}>₹2,00,000</option>
+            <option value={500000}>₹5,00,000</option>
+          </select>
+        </div>
       </div>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
+          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
           gap: "20px",
           marginBottom: "40px",
         }}
       >
-        <MetricCard
-          title="Final Capital"
-          value={`₹${Math.round(finalCapital).toLocaleString()}`}
-        />
+        {[
+          {
+            title: "Final Capital",
+            value: `₹${finalCapital.toLocaleString()}`,
+          },
+          {
+            title: "Profit Factor",
+            value: profitFactor,
+          },
+          {
+            title: "Win Rate",
+            value: `${winRate}%`,
+          },
+          {
+            title: "Total Trades",
+            value: filteredTrades.length,
+          },
+        ].map((card, i) => (
+          <div
+            key={i}
+            style={{
+              background: "#0f172a",
+              padding: "30px",
+              borderRadius: "24px",
+              border: "1px solid #1e293b",
+            }}
+          >
+            <p
+              style={{
+                color: "#94a3b8",
+                marginBottom: "20px",
+                fontSize: "18px",
+              }}
+            >
+              {card.title}
+            </p>
 
-        <MetricCard
-          title="Profit Factor"
-          value={profitFactor}
-        />
-
-        <MetricCard
-          title="Win Rate"
-          value={`${winRate}%`}
-        />
-
-        <MetricCard
-          title="Total Trades"
-          value={trades.length}
-        />
+            <h2
+              style={{
+                fontSize: "52px",
+                margin: 0,
+                fontWeight: "800",
+              }}
+            >
+              {card.value}
+            </h2>
+          </div>
+        ))}
       </div>
 
       <div
         style={{
-          background: "#0F172A",
-          borderRadius: "20px",
-          padding: "30px",
-          border: "1px solid #1E293B",
+          background: "#0f172a",
+          borderRadius: "30px",
+          padding: "40px",
+          border: "1px solid #1e293b",
         }}
       >
         <h2
           style={{
-            fontSize: "34px",
+            fontSize: "42px",
             marginBottom: "30px",
           }}
         >
           Trade Verification Logs
         </h2>
 
-        <table
+        <div
           style={{
-            width: "100%",
-            borderCollapse: "collapse",
+            overflowX: "auto",
           }}
         >
-          <thead>
-            <tr
-              style={{
-                color: "#94A3B8",
-                textAlign: "left",
-              }}
-            >
-              <th style={th}>Trade</th>
-              <th style={th}>Direction</th>
-              <th style={th}>PnL</th>
-              <th style={th}>ROI</th>
-              <th style={th}>Holding</th>
-              <th style={th}>Capital</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {trades.slice(0, 50).map((trade, index) => (
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+            }}
+          >
+            <thead>
               <tr
-                key={index}
                 style={{
-                  borderTop: "1px solid #1E293B",
+                  color: "#94a3b8",
+                  textAlign: "left",
+                  borderBottom: "1px solid #1e293b",
                 }}
               >
-                <td style={td}>#{trade.tradeId}</td>
+                <th style={{ padding: "20px" }}>Trade</th>
+                <th style={{ padding: "20px" }}>Direction</th>
+                <th style={{ padding: "20px" }}>PnL</th>
+                <th style={{ padding: "20px" }}>ROI</th>
+                <th style={{ padding: "20px" }}>Holding</th>
+                <th style={{ padding: "20px" }}>Capital</th>
+              </tr>
+            </thead>
 
-                <td style={td}>
-                  <span
+            <tbody>
+              {filteredTrades.map((trade, i) => (
+                <tr
+                  key={i}
+                  style={{
+                    borderBottom: "1px solid #1e293b",
+                  }}
+                >
+                  <td style={{ padding: "24px" }}>#{trade.id}</td>
+
+                  <td style={{ padding: "24px" }}>
+                    <span
+                      style={{
+                        background:
+                          trade.direction === "LONG"
+                            ? "rgba(182,245,66,0.15)"
+                            : "rgba(255,0,0,0.12)",
+
+                        color:
+                          trade.direction === "LONG"
+                            ? "#b6f542"
+                            : "#ff6464",
+
+                        padding: "10px 18px",
+                        borderRadius: "999px",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {trade.direction}
+                    </span>
+                  </td>
+
+                  <td
                     style={{
-                      background:
-                        trade.direction === "LONG"
-                          ? "#84cc1620"
-                          : "#ef444420",
-                      color:
-                        trade.direction === "LONG"
-                          ? "#B7F34D"
-                          : "#F87171",
-                      padding: "8px 16px",
-                      borderRadius: "999px",
+                      padding: "24px",
+                      color: trade.pnl > 0 ? "#b6f542" : "#ff6464",
                       fontWeight: "700",
                     }}
                   >
-                    {trade.direction}
-                  </span>
-                </td>
+                    ₹{trade.pnl.toLocaleString()}
+                  </td>
 
-                <td
-                  style={{
-                    ...td,
-                    color:
-                      trade.pnl > 0
-                        ? "#B7F34D"
-                        : "#F87171",
-                    fontWeight: "700",
-                  }}
-                >
-                  ₹{trade.pnl.toLocaleString()}
-                </td>
+                  <td style={{ padding: "24px" }}>{trade.roi}%</td>
 
-                <td style={td}>
-                  {trade.roi}%
-                </td>
+                  <td style={{ padding: "24px" }}>
+                    {trade.holding}
+                  </td>
 
-                <td style={td}>
-                  {trade.holdingHours}h
-                </td>
-
-                <td style={td}>
-                  ₹{trade.capitalAfter.toLocaleString()}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  <td style={{ padding: "24px" }}>
+                    ₹{trade.capital.toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 }
-
-function MetricCard({ title, value }) {
-  return (
-    <div
-      style={{
-        background: "#0F172A",
-        borderRadius: "20px",
-        padding: "30px",
-        border: "1px solid #1E293B",
-      }}
-    >
-      <div
-        style={{
-          color: "#94A3B8",
-          marginBottom: "16px",
-        }}
-      >
-        {title}
-      </div>
-
-      <div
-        style={{
-          fontSize: "42px",
-          fontWeight: "800",
-          color: "#FFFFFF",
-        }}
-      >
-        {value}
-      </div>
-    </div>
-  );
-}
-
-const th = {
-  padding: "18px",
-  fontSize: "15px",
-};
-
-const td = {
-  padding: "22px 18px",
-  fontSize: "16px",
-};
