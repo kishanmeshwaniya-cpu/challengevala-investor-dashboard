@@ -1,0 +1,280 @@
+{
+  "2022": [
+    {
+      "month": "Jan",
+      "trades": 42,
+      "winRate": 61,
+      "roi": 4.8,
+      "pnl": 4800,
+      "drawdown": 2.1,
+      "equity": 104800
+    },
+    {
+      "month": "Feb",
+      "trades": 38,
+      "winRate": 58,
+      "roi": 3.2,
+      "pnl": 3353,
+      "drawdown": 1.8,
+      "equity": 108153
+    },
+    {
+      "month": "Mar",
+      "trades": 51,
+      "winRate": 64,
+      "roi": 6.4,
+      "pnl": 6921,
+      "drawdown": 2.7,
+      "equity": 115074
+    },
+    {
+      "month": "Apr",
+      "trades": 46,
+      "winRate": 57,
+      "roi": 2.9,
+      "pnl": 3337,
+      "drawdown": 3.4,
+      "equity": 118411
+    },
+    {
+      "month": "May",
+      "trades": 49,
+      "winRate": 66,
+      "roi": 7.1,
+      "pnl": 8407,
+      "drawdown": 2.2,
+      "equity": 126818
+    },
+    {
+      "month": "Jun",
+      "trades": 44,
+      "winRate": 59,
+      "roi": 3.8,
+      "pnl": 4819,
+      "drawdown": 2.9,
+      "equity": 131637
+    },
+    {
+      "month": "Jul",
+      "trades": 52,
+      "winRate": 68,
+      "roi": 8.2,
+      "pnl": 10794,
+      "drawdown": 1.9,
+      "equity": 142431
+    },
+    {
+      "month": "Aug",
+      "trades": 47,
+      "winRate": 56,
+      "roi": 2.4,
+      "pnl": 3418,
+      "drawdown": 4.1,
+      "equity": 145849
+    },
+    {
+      "month": "Sep",
+      "trades": 53,
+      "winRate": 65,
+      "roi": 6.9,
+      "pnl": 10064,
+      "drawdown": 2.5,
+      "equity": 155913
+    },
+    {
+      "month": "Oct",
+      "trades": 41,
+      "winRate": 54,
+      "roi": 1.7,
+      "pnl": 2650,
+      "drawdown": 3.8,
+      "equity": 158563
+    },
+    {
+      "month": "Nov",
+      "trades": 56,
+      "winRate": 69,
+      "roi": 9.1,
+      "pnl": 14429,
+      "drawdown": 2.1,
+      "equity": 172992
+    },
+    {
+      "month": "Dec",
+      "trades": 48,
+      "winRate": 63,
+      "roi": 5.2,
+      "pnl": 8995,
+      "drawdown": 2.6,
+      "equity": 181987
+    }
+  ],
+
+  "2023": [
+    {
+      "month": "Jan",
+      "trades": 45,
+      "winRate": 60,
+      "roi": 4.1,
+      "pnl": 7461,
+      "drawdown": 2.3,
+      "equity": 189448
+    },
+    {
+      "month": "Feb",
+      "trades": 43,
+      "winRate": 57,
+      "roi": 2.6,
+      "pnl": 4925,
+      "drawdown": 3.2,
+      "equity": 194373
+    },
+    {
+      "month": "Mar",
+      "trades": 58,
+      "winRate": 71,
+      "roi": 10.4,
+      "pnl": 20215,
+      "drawdown": 1.7,
+      "equity": 214588
+    },
+    {
+      "month": "Apr",
+      "trades": 39,
+      "winRate": 55,
+      "roi": 1.9,
+      "pnl": 4077,
+      "drawdown": 3.9,
+      "equity": 218665
+    },
+    {
+      "month": "May",
+      "trades": 50,
+      "winRate": 67,
+      "roi": 7.8,
+      "pnl": 17056,
+      "drawdown": 2.4,
+      "equity": 235721
+    },
+    {
+      "month": "Jun",
+      "trades": 47,
+      "winRate": 62,
+      "roi": 5.3,
+      "pnl": 12493,
+      "drawdown": 2.8,
+      "equity": 248214
+    },
+    {
+      "month": "Jul",
+      "trades": 54,
+      "winRate": 69,
+      "roi": 8.7,
+      "pnl": 21595,
+      "drawdown": 2.1,
+      "equity": 269809
+    },
+    {
+      "month": "Aug",
+      "trades": 44,
+      "winRate": 58,
+      "roi": 3.4,
+      "pnl": 9173,
+      "drawdown": 3.5,
+      "equity": 278982
+    },
+    {
+      "month": "Sep",
+      "trades": 61,
+      "winRate": 72,
+      "roi": 11.2,
+      "pnl": 31246,
+      "drawdown": 1.6,
+      "equity": 310228
+    },
+    {
+      "month": "Oct",
+      "trades": 42,
+      "winRate": 56,
+      "roi": 2.1,
+      "pnl": 6514,
+      "drawdown": 4.2,
+      "equity": 316742
+    },
+    {
+      "month": "Nov",
+      "trades": 57,
+      "winRate": 68,
+      "roi": 9.4,
+      "pnl": 29773,
+      "drawdown": 2.2,
+      "equity": 346515
+    },
+    {
+      "month": "Dec",
+      "trades": 49,
+      "winRate": 64,
+      "roi": 5.9,
+      "pnl": 20444,
+      "drawdown": 2.7,
+      "equity": 366959
+    }
+  ],
+
+  "2024": [
+    {
+      "month": "Jan",
+      "trades": 53,
+      "winRate": 66,
+      "roi": 6.3,
+      "pnl": 23118,
+      "drawdown": 2.5,
+      "equity": 390077
+    },
+    {
+      "month": "Feb",
+      "trades": 46,
+      "winRate": 59,
+      "roi": 3.1,
+      "pnl": 12092,
+      "drawdown": 3.1,
+      "equity": 402169
+    },
+    {
+      "month": "Mar",
+      "trades": 62,
+      "winRate": 73,
+      "roi": 12.6,
+      "pnl": 50673,
+      "drawdown": 1.5,
+      "equity": 452842
+    },
+    {
+      "month": "Apr",
+      "trades": 41,
+      "winRate": 54,
+      "roi": 1.4,
+      "pnl": 6339,
+      "drawdown": 4.4,
+      "equity": 459181
+    },
+    {
+      "month": "May",
+      "trades": 58,
+      "winRate": 70,
+      "roi": 9.8,
+      "pnl": 45000,
+      "drawdown": 2.0,
+      "equity": 504181
+    },
+    {
+      "month": "Jun",
+      "trades": 52,
+      "winRate": 65,
+      "roi": 6.7,
+      "pnl": 33780,
+      "drawdown": 2.9,
+      "equity": 537961
+    }
+  ]
+}
